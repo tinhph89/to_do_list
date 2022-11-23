@@ -25,8 +25,22 @@ var storate = {
 var todo_list = storate.read() || [];
 // add to do list function
 function addTodo(todo) {
-  todo_list.push(todo);
-  storate.save(todo_list);
+  if (todo_list.length != "") {
+    for (var i in todo_list) {
+      if (todo_list[i] == todo) {
+        alert("Todo exits");
+        break;
+      } else {
+        todo_list.push(todo);
+        storate.save(todo_list);
+      }
+    }
+  } else {
+    todo_list.push(todo);
+    storate.save(todo_list);  
+  }
+
+
 }
 
 function add_item() {
