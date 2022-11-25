@@ -78,8 +78,8 @@ function show() {
   // list.innerHTML = "";
   html = "<tr> <th>Todo</th> <th>Task</th> </tr>"
   for (todo in todo_list) {
-    html = html + "<tr><td>" + todo_list[todo] +
-      "<td><button id='delete' onclick = 'removeTodo(" + todo + ") '> delete </button> </td> </tr>"
+    // console.log(todo_list[todo].task_day)
+    html = html + "<tr><td>" + todo_list[todo].todo + "</td><td>" + todo_list[todo].task_day + "</td><td><button id='delete' onclick = 'removeTodo(" + todo + ") '> delete </button> </td> </tr>"
   }
   list.innerHTML = html;
 }
