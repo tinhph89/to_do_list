@@ -8,6 +8,7 @@ var list = $("list");
 var input_item = $("input-item");
 var btn_add_todo = $("btn-add-todo");
 var task_day = $("task-day");
+var result = $("result");
 
 // tạo khóa có tên todo_list để lưu trong localstorage
 const storateName = 'todo_list';
@@ -76,11 +77,18 @@ function add_item() {
 show();
 function show() {
   // list.innerHTML = "";
+  var num_task = 0;
+  var num_day = 0;
   html = "<tr> <th>Todo</th> <th>Task</th> </tr>"
   for (todo in todo_list) {
     // console.log(todo_list[todo].task_day)
+    num_task = num_task + 1;
+    num_day = num_day + parseInt(todo_list[todo].task_day);
     html = html + "<tr><td>" + todo_list[todo].todo + "</td><td>" + todo_list[todo].task_day + "</td><td><button id='delete' onclick = 'removeTodo(" + todo + ") '> delete </button> </td> </tr>"
   }
+  var content = num_task + "task" + num_day + "days";
+
+  result.innerHTML = content
   list.innerHTML = html;
 }
 
